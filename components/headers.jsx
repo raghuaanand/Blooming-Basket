@@ -18,7 +18,7 @@ const headers = () => {
            }} >
           <div className=' font-[Quella] font-semibold
            text-xl 
-           ' >GREENMIND</div>
+           ' >BLOOMING BASKET</div>
            </Link>
           </div>
            <div className='sm:flex gap-7 font-sans font-medium hidden ' >

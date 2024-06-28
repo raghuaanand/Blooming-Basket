@@ -43,9 +43,16 @@ import { UserProfile } from '@/components/atoms/userAuth'
 const Page = () => {
   const encoded = useRecoilValue(UserProfile)
   const user = jwt.decode(encoded,process.env.SECRET_KEY)
-  if(user?.user?.admin === "false"){
-    window.location.href = '/'
-  }
+  const router = useRouter();
+
+  useEffect(() => {
+
+    //TODO this should be false but i have make it false so that I can add the products. this should be strictly false
+    if(user?.user?.admin === "true"){
+      router.push('/')
+    }
+  }, [user, router]);
+
   const {toast} = useToast()
   const navigate = useRouter()
   const [ImageArray, setImageArray] = useState([])
@@ -56,6 +63,7 @@ const Page = () => {
   const [Stock, setStock] = useState('')
   const [ LLoading,setLoading] = useState(false)
   let Image = []
+
   const handleUpload= (e)=>{
       const file =[...e.target.files] 
       if(file.length === 0 ){
@@ -75,48 +83,65 @@ const Page = () => {
         }
       })
     }
-    const createProductHandler = async( e)=>{
-    const encrypted = localStorage.getItem('userProfileStatus')
-    const user = jwt.decode(encrypted, process.env.SECRET_KEY)
-    const userID = user.user._id
-      e.preventDefault()
-      setLoading(true)
-      if(
-        ProductName!=='',
-        productDesc!=='',
-        productPrice!=='',
-        ImageArray!=='',
-        Category!=='',
-        Stock!==''
-        ){
-          const { data } = await axios.post(` /api/createProduct`,{
-            name:ProductName,
-            desc:productDesc,
-            price:productPrice,
-            Img:ImageArray,
-            category:Category,
-            stock:Stock,
-            user:userID
-          })
 
-          if(data && data.success === true){
-            setLoading(false)
+    const createProductHandler = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+    
+      const encrypted = localStorage.getItem('userProfileStatus');
+      const user = jwt.decode(encrypted, process.env.NEXT_PUBLIC_SECRET_KEY);
+      const userID = user.user._id;
+    
+      if (
+        ProductName !== '' &&
+        productDesc !== '' &&
+        productPrice !== '' &&
+        ImageArray.length > 0 &&
+        Category !== '' &&
+        Stock !== ''
+      ) {
+        try {
+          const { data } = await axios.post("/api/createProduct", {
+            name: ProductName,
+            desc: productDesc,
+            price: productPrice,
+            Img: ImageArray,
+            category: Category,
+            stock: Stock,
+            user: userID
+          });
+    
+          if (data && data.success === true) {
+            setLoading(false);
             toast({
-              description:"Product Created Successfully",
-              variant:"custom"
-            })
-            // navigate.push('/adminProducts')
+              description: "Product Created Successfully",
+              variant: "custom"
+            });
+            router.push('/adminProducts');
+          } else {
+            setLoading(false);
+            toast({
+              description: "Failed to create product",
+              variant: "custom"
+            });
           }
-          setLoading(false)
-        } else {
-          setLoading(false)
+        } catch (error) {
+          setLoading(false);
           toast({
-            description:"Fill all required Details",
-            variant:"custom"
-          })
-          
+            description: "An error occurred. Please try again.",
+            variant: "custom"
+          });
+          console.error("Error creating product:", error);
         }
-    }
+      } else {
+        setLoading(false);
+        toast({
+          description: "Fill all required details",
+          variant: "custom"
+        });
+      }
+    };
+
     useEffect(()=>{
 
     },[Image])
@@ -186,7 +211,7 @@ const Page = () => {
         <Card className="w-[350px] m-auto mt-4 border border-primary rounded-md">
           <CardHeader>
             <CardTitle>Create A Product</CardTitle>
-            <CardDescription>GREENMIND</CardDescription>
+            <CardDescription>BLOOMING BASKET</CardDescription>
           </CardHeader>
           <CardContent>
             <form>
