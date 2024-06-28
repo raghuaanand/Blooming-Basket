@@ -6,7 +6,8 @@ module.exports = {
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
-	],
+  ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -16,9 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      backgroundColor: {
-        'cyan': '#C1DCDC', // Use your desired color code
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -61,12 +59,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {

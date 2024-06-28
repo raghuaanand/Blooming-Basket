@@ -1,68 +1,107 @@
-import React, { Fragment } from 'react'
-import { Separator } from "@/components/ui/separator"
-import { Input } from '@/components/ui/input'
-import { Search } from 'lucide-react'
+"use client"
+import React, { useEffect, useState } from 'react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import { Separator } from "@/components/ui/separator";
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
-const section1 = () => {
-    return (
-        <Fragment>
-            <div className='w-[85vw] min-h-[512px] bg-cyan m-auto rounded-3xl flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row  gap-0 justify-around ' >
-                <div  >
-                    <div className=' m-auto my-5 md:w-auto  md:p-6  md:ml-10 mt-4 w-[300px]' >
-                        <h1 className='scroll-m-20 sm:text-4xl  text-3xl font-extrabold tracking-tight lg:text-5xl xl:text-6xl text-black  ' >
-                            Buy your <br /> Dream Plants
-                        </h1>
-                    </div>
-                    <div className='flex text-black gap-4 md:m-3  md:ml-12 w-[300px] m-auto my-5  md:w-auto ' >
-                        <div className='ml-2' >
-                            <div>
-                                <h1 className='scroll-m-20 sm:text-2xl  font-extrabold tracking-tight lg:text-3xl' >
-                                    50 +
-                                </h1>
-                            </div>
-                            <div>
-                                <h2 className='scroll-m-20 sm:text-xl font-extrabold tracking-tight lg:text-2xl' >
-                                    Plant Species
-                                </h2>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div>
-                                <h1 className='scroll-m-20 sm:text-2xl font-extrabold tracking-tight lg:text-3xl' >
-                                    100 +
-                                </h1>
-                            </div>
-                            <div>
-                                <h2 className='scroll-m-20 sm:text-xl font-extrabold tracking-tight lg:text-2xl' >
-                                    Customers
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='w-[70vw]  md:w-[30vw] flex gap-0  mt-12 md:ml-12 ml-8  '>
-                        <div className='w-[100%]  p-[0.15rem] '>
-                            <Input className='p-[0.25rem]'  placeholder="Search"></Input>
-                        </div>
-                        <span className='bg-primary w-[15%] pt-2.5 rounded-lg p-1 ' >
-                            <Search size={21} className='m-auto glex  items-center' color='#000000' ></Search>
-                        </span>
-                    </div>
-                </div>
-                <div className=' w-[280px] sm:min-w-[470px] sm:min-h-[400px] md:max-w-[600px] md:max-h-[600px] 
-            lg:min-h-[420px]  lg:min-w-[500px] xl:min-w-[580px]  xl:min-h-[470px] sm-auto' >
-                    <img
-                        className='  w-[280px] sm:min-w-[470px] sm:min-h-[400px] md:max-w-[600px] md:max-h-[600px] 
-            lg:min-h-[420px]   lg:min-w-[500px] xl:min-w-[580px]  xl:min-h-[470px] items-center  flex
-            md:mt-0
-            '
-                        src='/pot-img.png'
-                    />
-
-                </div>
+const Section1 = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const carouselItems = [
+    {
+      content: (
+        <div className='flex items-center justify-center space-x-40 bg-yellow-300 w-full h-[400px] rounded-lg'>
+          <div className='flex-col space-y-10 text-blue-900'>
+            <h2 className='font-bold text-5xl'>Experience the <br />Sweetness from Home</h2>
+            <div className='flex space-x-10 text-2xl font-bold'>
+              <p>23+ <br /> Mangoes varities</p>
+              <p>1000+ <br />frequent customers</p>
             </div>
-        </Fragment>
-    )
-}
+          </div>
+          <img src='/mango-header.png' className='w-[30%]' alt='mango image' />
+        </div>
+      )
+    },
+    { 
+        content: (
+        <div className='flex items-center justify-center space-x-40 bg-green-300 w-full h-[400px]'>
+          <div className='flex-col space-y-10 text-blue-900'>
+            <h2 className='font-bold text-5xl'>Straight from <br /> Farm to your Plate</h2>
+            <div className='flex space-x-10 text-2xl font-bold'>
+              <p>23+ <br /> Mangoes varities</p>
+              <p>1000+ <br />frequent customers</p>
+            </div>
+          </div>
+          <img src='/mango-header2.png' className='w-[40%]' alt='mango image' />
+        </div>
+      )
+    },
+    { 
+        content: (
+            <div className='flex items-center justify-center space-x-40 bg-yellow-300 w-full h-[400px]'>
+              <div className='flex-col space-y-10 text-blue-900'>
+                <h2 className='font-bold text-5xl'>Experience the <br />Sweetness from Home</h2>
+                <div className='flex space-x-10 text-2xl font-bold'>
+                  <p>23+ <br /> Mangoes varities</p>
+                  <p>1000+ <br />frequent customers</p>
+                </div>
+              </div>
+              <img src='/mango-header.png' className='w-[30%]' alt='mango image' />
+            </div>
+          )
+    }
+  ];
 
-export default section1
+  useEffect(() => {
+    let interval;
+    if (autoPlay) {
+      interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+      }, 8000); // Adjust the time interval as needed
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [autoPlay, carouselItems.length]);
+
+  const goToPrevious = () => {
+    setAutoPlay(false);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + carouselItems.length) % carouselItems.length);
+  };
+
+  const goToNext = () => {
+    setAutoPlay(false);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+  };
+
+  return (
+    <div className="w-[85%] mx-auto">
+      <Carousel>
+      <CarouselPrevious onClick={goToPrevious} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+        <CarouselContent>
+          {carouselItems.map((item, index) => (
+            <CarouselItem key={index} className={`${index === currentIndex ? 'block' : 'hidden'}`}>
+              {item.content}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselNext onClick={goToNext} className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
+      </Carousel>
+      <div className="flex justify-center mt-4">
+        {carouselItems.map((_, index) => (
+          <button
+            key={index}
+            className={`h-2 w-2 mx-1 rounded-full ${index === currentIndex ? 'bg-blue-500' : 'bg-gray-300'}`}
+            onClick={() => {
+              setAutoPlay(false);
+              setCurrentIndex(index);
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Section1;

@@ -26,7 +26,7 @@ const Section2 = async () => {
   noStore()
   return (
     <Fragment>
-      <div className='w-[85vw]  m-auto mb-5 flex-col  md:flex md:flex-row  border-red-900 border-[5px]'  >
+      <div className='w-[85vw]  m-auto mb-5 flex-col  md:flex md:flex-row'  >
 
       
         <div className='lg:w-[40%] flex flex-col w-[300px] m-auto md:m-0 p-8 pr-0 gap-8 ' >
