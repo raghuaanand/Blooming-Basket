@@ -11,7 +11,7 @@ import { toast } from './ui/use-toast'
 const headers = () => {
   const url = usePathname()
   return (
-    <div className={`flex justify-between overflow-hidden  top-0 relative `} >
+    <div className={`flex justify-between overflow-hidden  top-0 relative border-b-2 shadow-md`} >
         <div className='pl-5 pt-4 my-4 flex gap-4 sm:gap-10 md:gap-16 md:ml-7 ' >
           <div>
            <Link className='text-xl  ' href={'/'} onClick={()=>{

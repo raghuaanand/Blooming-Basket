@@ -13,7 +13,7 @@ const FeedBackContainer = async() => {
   return (
     <div className=''>
       <div className='text-xl font-bold m-9' >
-        What customers say about <br></br> GREENMIND?
+        What customers say about <br></br> BLOOMING BASKET?
       </div>
      <div className='w-[90vw] h-[300px] m-auto text-black mb-20' >
         <div className='w-[90vw] m-auto  h-[500px] ' > 

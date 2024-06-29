@@ -155,7 +155,7 @@ const jwt = require('jsonwebtoken');
           <Button             
               type={'submit'}
               variant="secondary" 
-              className="text-white-foreground bg-primary hover:bg-green-400 "
+              className="text-white-foreground bg-blue-500 hover:bg-green-400 "
               >
               Sign In</Button>
           </CardFooter>
@@ -201,7 +201,7 @@ const jwt = require('jsonwebtoken');
               type={'submit'}
               onClick={signupapi}
               variant="secondary"
-              className="text-white-foreground bg-primary hover:bg-green-400  "             
+              className="text-white-foreground bg-blue-500 hover:bg-green-400  "             
               >
               Sign up</Button>
           </CardFooter>

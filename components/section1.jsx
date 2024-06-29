@@ -76,9 +76,8 @@ const Section1 = () => {
   };
 
   return (
-    <div className="w-[85%] mx-auto">
+    <div className="w-[85%] mx-auto pb-10 mt-4">
       <Carousel>
-      <CarouselPrevious onClick={goToPrevious} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
         <CarouselContent>
           {carouselItems.map((item, index) => (
             <CarouselItem key={index} className={`${index === currentIndex ? 'block' : 'hidden'}`}>
@@ -86,6 +85,7 @@ const Section1 = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+      <CarouselPrevious onClick={goToPrevious} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
         <CarouselNext onClick={goToNext} className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md" />
       </Carousel>
       <div className="flex justify-center mt-4">

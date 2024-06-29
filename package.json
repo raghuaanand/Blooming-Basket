@@ -57,7 +57,7 @@
     "react-simple-star-rating": "^5.1.7",
     "react-star-ratings": "^2.3.0",
     "recoil": "^0.7.7",
-    "stripe": "^14.14.0",
+    "stripe": "^14.25.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"

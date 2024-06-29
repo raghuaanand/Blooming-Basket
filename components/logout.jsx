@@ -248,7 +248,7 @@ const logout = () => {
                 <SheetTrigger> <Menu strokeWidth={1.75} /></SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
-                    <SheetTitle> <img src='/GREENMIND.png'className='md:min-w-[132px] md:min-h-[27px] sm:min-w-[100px] sm:min-h-[23px]  min-w-[90px] min-h-[18px] m-auto ' ></img> </SheetTitle>
+                    <SheetTitle> <img src='/BLOOMINGBASKET.png'className='md:min-w-[132px] md:min-h-[27px] sm:min-w-[100px] sm:min-h-[23px]  min-w-[90px] min-h-[18px] m-auto ' ></img> </SheetTitle>
                     <SheetDescription  >
                       <div className='flex flex-col m-auto gap-8 items-center justify-center mt-7' >
                      <div> <Link href='/' >Home</Link></div>

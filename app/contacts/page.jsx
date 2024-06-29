@@ -15,7 +15,7 @@ const Contacts = () => {
                 Love to hear from you, 
                <div className='flex items-center gap-2'> <div>Get in touch</div> <span> <Hand  /></span></div>
                 <div  className='text-sm font-medium'>
-                    Share your experience with GREEMIND
+                    Share your experience with BLOOMING BASKET
                 </div>
             </div>
             <div className='flex flex-col justify-center sm:justify-center sm:m-auto sm:flex-row mt-8' >
@@ -23,19 +23,19 @@ const Contacts = () => {
                 <FeedBackForm/>
             </div>
             <div className=' m-auto sm:m-4 sm:mt-0 my-6 pb-6' >                
-               <div> <Label htmlFor="name" className=' font-[Quella] font-semibold text-lg' > GREENMIND </Label></div>
+               <div> <Label htmlFor="name" className=' font-[Quella] font-semibold text-lg' > BLOOMING BASKET </Label></div>
                 <div>
-                <Label htmlFor="name" >  Developed by -  <Link className='underline' target='blank' href={'https://github.com/piyushhsainii'}>Piyush Saini</Link> </Label>
+                <Label htmlFor="name" >  Developed by -  <Link className='underline' target='blank' href={'https://github.com/raghuaanand'}>Raghu Anand</Link> </Label>
                 </div>
                 <div>
-                <Label htmlFor="name" >  &copy;  2024 all Rights Reserved Term of use GREENMIND  </Label>
+                <Label htmlFor="name" >  &copy;  2024 all Rights Reserved Term of use BLOOMING BASKET </Label>
                 </div>
                 <div className='text-center mt-4' >
                         Connect with Me
                     <div className='flex justify-center gap-4 m-4' >
-                        <div> <Link  target='blank' href='https://github.com/piyushhsainii'><Github></Github></Link>  </div>
-                        <div> <Link target='blank' href={'https://twitter.com/piyushsainii'}> <Twitter /> </Link>  </div>
-                        <div> <Link  target='blank'href={'https://www.linkedin.com/in/piyush-saini-b860ab1bb/'}> <Linkedin /> </Link>  </div>
+                        <div> <Link  target='blank' href='https://github.com/raghuaanand'><Github></Github></Link>  </div>
+                        <div> <Link target='blank' href={'https://twitter.com/raghuaanand'}> <Twitter /> </Link>  </div>
+                        <div> <Link  target='blank'href={'https://www.linkedin.com/in/raghuaanand/'}> <Linkedin /> </Link>  </div>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ const Section2 = async () => {
   noStore()
   return (
     <Fragment>
-      <div className='w-[85vw]  m-auto mb-5 flex-col  md:flex md:flex-row'  >
+      <div className='w-[85%]  m-auto mb-5 flex-col  md:flex md:flex-row'  >
 
       
         <div className='lg:w-[40%] flex flex-col w-[300px] m-auto md:m-0 p-8 pr-0 gap-8 ' >
@@ -35,11 +35,11 @@ const Section2 = async () => {
           </div>
           <div className='' >
             <p className='text-muted-foreground w-[250px] ' >
-              Easiest way to live a healthy life is by planting a plant.
+              Eat mangoes and let the good vibes flow.
             </p>
           </div>
-          <div className='flex bg-[#C1DCDC] w-[130px] p-3 gap-1 justify-between ' >
-            <div className='text-black' >
+          <div className='flex bg-yellow-300 rounded-lg w-[130px] p-3 gap-1 justify-between ' >
+            <div className='text-blue-800 font-semibold' >
               <Link href={'/products'} > See More</Link>
             </div>
             <div>
@@ -64,11 +64,11 @@ const Section2 = async () => {
                 <CarouselContent  >
                   {
                     data?.map((item) => (
-                      <Link className='basis-2/3 w-[350px] mx-4' key={item._id} href={`/plant/${item._id}`}>
-                        <CarouselItem className=' ' >
-                          <img src={item.Img[0].url} className='min-w-[350px]  h-[357px]  ' alt="" />
-                          <div className=' font-bold p-4 pb-2 ' >{item.name}</div>
-                          <div className=' text-muted-foreground p-4 pt-0'> {item.price}</div>
+                      <Link className='basis-1/3 w-[380px] mx-4' key={item._id} href={`/plant/${item._id}`}>
+                        <CarouselItem className=' border-2 rounded-md flex flex-col items-center' >
+                          <img src={item.Img[0].url} className='min-w-[250px]  h-[257px]  rounded-md' alt="" />
+                          <div className=' font-bold p-4 pb-2' >{item.name}</div>
+                          <div className=' text-muted-foreground p-4 pt-0 text-blue-400 font-semibold'> Rs. {item.price}</div>
                         </CarouselItem>
                       </Link>
                     ))}
@@ -88,7 +88,7 @@ export default Section2
 export function TypographyH3() {
   return (
     <h2 className="scroll-m-20 text-2xl md:text-2xl lg:text-3xl tracking-tight font-bold">
-      Best Selling Plants
+      Our Best <br></br> Selling Mangoes
     </h2>
   )
 }

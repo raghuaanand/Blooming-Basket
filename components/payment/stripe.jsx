@@ -21,7 +21,7 @@ export const paymentSetup = async ({
                 currency:"inr",
                 unit_amount:product,
                 product_data:{
-                    name:"GreenMind"
+                    name:"Blooming Basket"
                 }
             },
             quantity:1

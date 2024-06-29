@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata = {
-  title: 'Greenmind Store',
+  title: 'BLOOMING BAKSET',
 }
 
 export default function RootLayout({ children }) {
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link
-         rel='greenmind-store'
+         rel='BLOOMINGBASKET-store'
         href='/pot1.png'
         
         />
